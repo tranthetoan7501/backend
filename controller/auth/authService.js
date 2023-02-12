@@ -37,7 +37,6 @@ exports.verifyMessage = (user) => {
 
 exports.verify = async (token) => {
   const decoded = jwt.verify(token, process.env.VERIFY_MAIL_JWT_SECRET);
-
   const user = await User.findOneAndUpdate(
     { email: decoded.email },
     { verified: true }

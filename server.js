@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const passport = require('passport');
 const passportStrategy = require('./middleware/passport');
 const connectDb = require('./config/connectDB');
+const cors = require('cors');
 dotenv.config({ path: './config/config.env' });
 const errorHandler = require('./middleware/error');
 
@@ -17,6 +18,13 @@ app.use(passport.initialize());
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
+app.use(
+  cors({
+    origin: ['https://webadvance.netlify.app/', 'http://localhost:3000'],
+    methods: 'GET,POST,PUT,DELETE',
+    credentials: true,
+  })
+);
 const route = require('./routes');
 const { mongo, default: mongoose } = require('mongoose');
 

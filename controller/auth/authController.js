@@ -43,19 +43,8 @@ exports.logIn = async (req, res, next) => {
     return next(new ErrorResponse('Your account has not been verified', 500));
   }
   if (req.user) {
-    //req.user.tokenCode = Math.random().toString();
-    // const user = await User.findByIdAndUpdate(
-    //   req.user.id,
-    //   { tokenCode: req.user.tokenCode },
-    //   {
-    //     new: true,
-    //     runValidators: true,
-    //   }
-    // );
     req.user.token = req.user.getSignedJwtToken();
-
-    Res(req.user.toAuthJSON(), res);
-    //AuthService.sendTokenResponse(req.user, 200, res);
+    Res(req.user.toAuthJSON(), res);  
   } else {
     return next(new ErrorResponse('Login fail !!!', 500));
   }

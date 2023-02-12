@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "MA",
-    "start": "nodemon server"
+    "start": "nodemon server",
+    "debug": "ndb server"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,16 @@
   "homepage": "https://github.com/tranthetoan7501/backend#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.33.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.0",
     "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "ndp": "^1.0.2",
     "nodemailer": "^6.8.0",
     "passport": "^0.6.0",
     "passport-google-oauth20": "^2.0.0",
