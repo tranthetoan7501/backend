@@ -44,8 +44,12 @@ exports.logIn = async (req, res, next) => {
   }
   if (req.user) {
     req.user.token = req.user.getSignedJwtToken();
-    Res(req.user.toAuthJSON(), res);  
+    Res(req.user.toAuthJSON(), res);
   } else {
     return next(new ErrorResponse('Login fail !!!', 500));
   }
+};
+
+exports.getVersion = async (req, res, next) => {
+  Res(process.env.VERSION, res);
 };
