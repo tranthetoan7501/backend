@@ -4,7 +4,7 @@ const Post = mongoose.Schema({
     type: String,
     required: [true, 'Please add a title'],
     trim: true,
-    maxlength: [60, 'Username can not be more than 60 characters'],
+    maxlength: [100, 'Title can not be more than 60 characters'],
   },
   category: {
     type: String,

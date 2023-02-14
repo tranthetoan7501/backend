@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 app.use(
   cors({
-    origin: ['https://webadvance.netlify.app/', process.env.CLIENT_APP],
+    origin: ['http://localhost:3001', process.env.CLIENT_APP],
     methods: 'GET,POST,PUT,DELETE',
     credentials: true,
   })

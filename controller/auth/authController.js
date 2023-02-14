@@ -28,7 +28,7 @@ exports.verify = asyncHandler(async (req, res, next) => {
   const verifiedUser = await AuthService.verify(req.params.token);
 
   if (verifiedUser != null) {
-    Res('Verify success', res);
+    res.redirect(`${process.env.CLIENT_APP}/login`);
   } else {
     return next(new ErrorResponse('Can not verify your account', 500));
   }
@@ -51,5 +51,8 @@ exports.logIn = async (req, res, next) => {
 };
 
 exports.getVersion = async (req, res, next) => {
+  Res(process.env.VERSION, res);
+};
+exports.checkValidToken = async (req, res, next) => {
   Res(process.env.VERSION, res);
 };

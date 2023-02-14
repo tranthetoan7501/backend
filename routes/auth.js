@@ -7,11 +7,15 @@ const {
   verify,
   logIn,
   getVersion,
+  checkValidToken,
 } = require('../controller/auth/authController');
 
 router.route('/signup').post(signUp);
 router.route('/confirm/:token').get(verify);
 router.route('/getversion').get(getVersion);
+router
+  .route('/validateToken')
+  .get(passport.authenticate('jwt', { session: false }), checkValidToken);
 
 // router.route('/confirm/:token').get(verify);
 
